@@ -7,9 +7,14 @@ backend:
         - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
 frontend:
   phases:
+    preBuild:
+      commands:
+        - nvm install 18.19.0  # Install Node.js version 18.19.0
+        - nvm use 18.19.0      # Use the updated Node.js version
+        - npm install -g @angular/cli
+        - npm install
     build:
       commands:
-        - npm install -g @angular/cli
         - ng version
         - ng build --configuration=production
   artifacts:
