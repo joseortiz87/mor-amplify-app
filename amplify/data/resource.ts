@@ -12,7 +12,7 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
-  user_table: a
+  users: a
     .model({
       user_id: a.string(),
       name : a.string(),  
