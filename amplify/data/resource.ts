@@ -12,9 +12,13 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
-  Todo2: a
+  user_table: a
     .model({
-      content: a.string(),
+      user_id: a.string(),
+      name : a.string(),  
+      email :	a.string(),
+      date_of_birth : a.date(),
+      type: a.string()
     })
     .authorization((allow) => [allow.publicApiKey()]),
 });
