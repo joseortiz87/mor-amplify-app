@@ -38,7 +38,7 @@ export class UserComponent implements OnInit {
         },
       });*/
       console.log(client);
-      client.models.User.list().then(items => {
+      client.models.Usuario.list().then(items => {
         this.users = items.data;
       }).catch(error => {
         console.error('Error fetching users:', error);
@@ -50,7 +50,7 @@ export class UserComponent implements OnInit {
   
   createUser() {
     try {
-      client.models.User.create({
+      client.models.Usuario.create({
         name: window.prompt('User name'),
       });
       this.listUsers();
@@ -60,13 +60,13 @@ export class UserComponent implements OnInit {
   }
   
   deleteUser(id: string) {
-    client.models.User.delete({ id })
+    client.models.Usuario.delete({ id })
   }
 
   async updateUser(user: User): Promise<void> {
     try {
       // Update user data
-      await client.models.User.update({ // Update method may vary based on your client implementation
+      await client.models.Usuario.update({ // Update method may vary based on your client implementation
         id: user.id,
         email: user.email,
         date_of_birth: user.date_of_birth ? this.formatDate(user.date_of_birth) : null,
