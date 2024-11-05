@@ -19,7 +19,8 @@
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
     "@aws-amplify/ui-angular": "^5.0.30",
-    "aws-amplify": "^6.4.0",
+    "@aws-sdk/client-cognito-identity-provider": "^3.682.0",
+    "aws-amplify": "^6.8.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

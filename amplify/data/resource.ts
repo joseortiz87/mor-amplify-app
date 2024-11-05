@@ -12,13 +12,14 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
-  users: a
+  User: a
     .model({
       user_id: a.string(),
-      name : a.string(),  
-      email :	a.string(),
-      date_of_birth : a.date(),
-      type: a.string()
+      name: a.string(),
+      email: a.string(),
+      date_of_birth: a.date(),
+      type: a.string(),
+      component: a.string(), // Include the component field
     })
     .authorization((allow) => [allow.publicApiKey()]),
 });

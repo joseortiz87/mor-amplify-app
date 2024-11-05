@@ -21,10 +21,16 @@ export class TodosComponent implements OnInit {
 
   listTodos() {
     try {
-      client.models.Todo.observeQuery().subscribe({
+      /*
+      client.models.users.observeQuery().subscribe({
         next: ({ items, isSynced }) => {
           this.todos = items;
         },
+      });*/
+      client.models.Todo.list().then(items => {
+        this.todos = items.data;
+      }).catch(error => {
+        console.error('Error fetching users:', error);
       });
     } catch (error) {
       console.error('error fetching todos', error);

@@ -1,0 +1,45 @@
+<!-- todos.component.html -->
+<main>
+    <h1>Usuarios</h1>
+    <button (click)="createUser()">+ new</button>
+    <br/>
+    <div *ngIf="users && users.length">
+        <table>
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Date of Birth</th>
+              <th>Type</th>
+              <th>-</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td (click)="deleteUser(user.id)">{{ user.id }}</td>
+              <td>{{ user.name }}</td>
+              <td>
+                <input [(ngModel)]="user.email" type="email" />
+              </td>
+              <td>
+                <input [(ngModel)]="user.date_of_birth" type="date" />
+              </td>
+              <td>
+                <input [(ngModel)]="user.type" type="text" />
+              </td>
+              <td>
+                <button (click)="updateUser(user)">Save</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div *ngIf="!users || users.length === 0">
+        <p>No users found.</p>
+      </div>
+      <br/>
+    <div>
+    </div>
+</main>
