@@ -60,7 +60,8 @@ export class UserComponent implements OnInit {
   }
   
   deleteUser(id: string) {
-    client.models.Usuario.delete({ id })
+    client.models.Usuario.delete({ id });
+    this.listUsers();
   }
 
   async updateUser(user: User): Promise<void> {

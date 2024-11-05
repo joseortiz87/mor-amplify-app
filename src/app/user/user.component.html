@@ -1,35 +1,39 @@
 <!-- todos.component.html -->
 <main>
-    <h1>Usuarios</h1>
+    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Usuarios</h1>
     <button (click)="createUser()">+ new</button>
     <br/>
-    <div *ngIf="users && users.length">
-        <table>
-          <thead>
+    <div *ngIf="users && users.length" class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th>User ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Date of Birth</th>
-              <th>Type</th>
-              <th>-</th>
+              <th scope="col" class="px-6 py-3">User ID</th>
+              <th scope="col" class="px-6 py-3">Name</th>
+              <th scope="col" class="px-6 py-3">Email</th>
+              <th scope="col" class="px-6 py-3">Date of Birth</th>
+              <th scope="col" class="px-6 py-3">Type</th>
+              <th scope="col" class="px-6 py-3">-</th>
+              <th scope="col" class="px-6 py-3">-</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of users">
-              <td (click)="deleteUser(user.id)">{{ user.id }}</td>
-              <td>{{ user.name }}</td>
-              <td>
+            <tr *ngFor="let user of users" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ user.id }}</th>
+              <td class="px-6 py-4">{{ user.name }}</td>
+              <td class="px-6 py-4">
                 <input [(ngModel)]="user.email" type="email" />
               </td>
-              <td>
+              <td class="px-6 py-4">
                 <input [(ngModel)]="user.date_of_birth" type="date" />
               </td>
-              <td>
+              <td class="px-6 py-4">
                 <input [(ngModel)]="user.type" type="text" />
               </td>
-              <td>
+              <td class="px-6 py-4">
                 <button (click)="updateUser(user)">Save</button>
+              </td>
+              <td class="px-6 py-4">
+                <button (click)="deleteUser(user.id)">Delete</button>
               </td>
             </tr>
           </tbody>
