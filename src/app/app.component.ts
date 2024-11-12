@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { initFlowbite } from 'flowbite';
 import { SleepImageUploadComponent } from './sleep-image-upload/sleep-image-upload.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { NgChartsModule } from 'ng2-charts';
 
 Amplify.configure(outputs);
 
@@ -19,7 +20,7 @@ Amplify.configure(outputs);
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet, TodosComponent, AmplifyAuthenticatorModule, UserComponent, CommonModule, FormsModule, SleepImageUploadComponent, TopBarComponent],
+  imports: [RouterOutlet, TodosComponent, AmplifyAuthenticatorModule, UserComponent, CommonModule, FormsModule, SleepImageUploadComponent, TopBarComponent, NgChartsModule],
 })
 export class AppComponent implements OnInit {
   title = 'amplify-angular-template';

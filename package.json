@@ -22,7 +22,10 @@
     "@aws-amplify/ui-angular": "^5.0.30",
     "@aws-sdk/client-cognito-identity-provider": "^3.682.0",
     "aws-amplify": "^6.8.0",
+    "aws-sdk": "^2.1692.0",
+    "chart.js": "^4.4.6",
     "flowbite": "^2.5.2",
+    "ng2-charts": "^4.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

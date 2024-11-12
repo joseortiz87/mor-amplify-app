@@ -1,0 +1,36 @@
+<!-- sleep-analysis.component.html -->
+
+<div *ngIf="parsedData" class="max-w-sm mx-auto mt-6">
+    <!-- Display result message -->
+    <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+      <p class="font-bold">Resultados Analisis</p>
+      <p class="text-sm">{{ parsedData.message }}</p>
+    </div>
+  
+    <!-- Show isSleeping status with conditional formatting -->
+    <div class="mt-4">
+      <p class="text-lg">
+        Esta cansado: 
+        <span [ngClass]="parsedData.isSleeping ? 'text-green-500' : 'text-red-500'">
+          {{ parsedData.isSleeping ? 'Si' : 'No' }}
+        </span>
+      </p>
+    </div>
+  
+    <!-- Display confidence in a progress bar -->
+    <div class="mt-4">
+      <label class="block text-gray-700 font-bold mb-2">Nivel de confiabilidad</label>
+      <div class="w-full bg-gray-200 rounded-full">
+        <div
+          class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+          [style.width.%]="parsedData.confidence">
+          {{ parsedData.confidence | number:'1.0-2' }}%
+        </div>
+      </div>
+    </div>
+  
+    <!-- Optionally show confidence as a chart (e.g., with Chart.js or ngx-charts) -->
+    <div class="mt-4">
+      <canvas id="confidenceChart"></canvas>
+    </div>
+  </div>  

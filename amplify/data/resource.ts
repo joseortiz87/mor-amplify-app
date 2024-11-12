@@ -1,4 +1,5 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
+import { sleepAnalysis } from '../functions/sleepAnalysisFunction/resource'
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -10,8 +11,7 @@ const schema = a.schema({
   Todo: a
     .model({
       content: a.string(),
-    })
-    .authorization((allow) => [allow.publicApiKey()]),
+    }).authorization((allow) => [allow.publicApiKey()]),
   Usuario: a
     .model({
       name: a.string(),
@@ -19,8 +19,24 @@ const schema = a.schema({
       date_of_birth: a.date(),
       type: a.string(),
       component: a.string(), // Include the component field
-    })
-    .authorization((allow) => [allow.publicApiKey()]),
+    }).authorization((allow) => [allow.publicApiKey()]),
+  SleepAnalysis : a
+  .model({
+    userId: a.string(),
+    imageUrl: a.string(),
+    rekognitionStatus: a.string(),
+    sleepQuality: a.string(), //String – Calidad del sueño evaluada (por ejemplo, "bueno", "moderado", "pobre").
+    recommendations: a.json() //JSON – Recomendaciones de mejora de sueño en formato JSON.
+  }).authorization((allow) => [allow.publicApiKey()]),
+  doSleepAnalysis : a
+  .query()
+  .arguments({
+    imageKey: a.string(),
+    userId: a.string()
+  })
+  .returns(a.json())
+  .handler(a.handler.function(sleepAnalysis))
+  .authorization((allow) => [allow.publicApiKey()])
 });
 
 export type Schema = ClientSchema<typeof schema>;
