@@ -4,7 +4,7 @@ import { Rekognition } from 'aws-sdk';
 
 export const handler: Schema["doSleepAnalysis"]["functionHandler"] = async (event, context) => {
     const { imageKey,userId } = event.arguments
-    const bucketName = 'amplify-amplifyangulartem-moruserimagebucket224d36-yufumopab1mn';
+    const bucketName = 'amplify-d216tf5eivd8jp-ma-moruserimagebucket224d36-zvczp2lhgyjd'; // bucket para test 'amplify-amplifyangulartem-moruserimagebucket224d36-yufumopab1mn';
     const rekognition = new Rekognition();
 
     const params : Rekognition.Types.DetectFacesRequest = {
